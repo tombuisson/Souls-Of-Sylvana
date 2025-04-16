@@ -48,7 +48,7 @@ const scenes = {
             level1Config.nbLives,
             1,
             false,
-            16
+            16,
         );
     
         player.enablePassthrough()
@@ -59,9 +59,7 @@ const scenes = {
         attachCamera(player.gameObj, 0, 200)
     
         level1.drawWaves("water", "wave")
-    
-        uiManager.addDarkBg()
-    
+        
         uiManager.displayCoinCount()
         player.updateCoinCount(uiManager.coinCountUI)
     

@@ -50,9 +50,6 @@ const scenes = {
             false,
             16
         );
-        
-        movingPlatform(100, 500, 200, 40, 100);
-        movingPlatform(400, 300, 200, 40, 150);
     
         player.enablePassthrough()
         player.enableCoinPickup()

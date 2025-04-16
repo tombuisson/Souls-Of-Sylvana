@@ -1,2 +1,0 @@
-add enter pressed sound effect on UIManager main menu page and then de-comment "load.sounds()" and "play("confirm-ui", { speed: 1.5 })" from main.js.
-

@@ -24,15 +24,10 @@ export const load = {
         loadSprite("feather", "./assets/feather.png")
         loadSprite("pancarte", "./assets/pancarte.png")
         loadSprite("arrow-pancarte", "./assets/arrow-pancarte.png")
+        loadSprite("tab", "./assets/keys/Tab_Key_Dark.png")
+        loadSprite("catLaughing", "./assets/catLaughing.png")
 
-        loadSprite("platform-tileset", "./assets/Platform.png", {
-            sliceX: 3,
-            anims: {
-                l: 0,
-                m: 1,
-                r: 2
-            },
-        });
+        loadSprite("platform", "./assets/Platform.png")
 
         // loadSprite("energy", "./assets/energy-icon.png"), {
         //     sliceY: 4,

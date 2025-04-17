@@ -72,28 +72,6 @@ export function generateMappings(tileType) {
       g: () => [sprite("door", { anim: "opening"}), area(), "door", scale(0.15), offscreen()],
       h: () => [sprite("pancarte"), area(), "pancarte", scale(0.05), pos(6, 4), offscreen()],
       i: () => [sprite("arrow-pancarte"), area(), "arrow-pancarte", scale(0.05), pos(6, 4), offscreen()],
-
-      j: () => [
-        sprite("platform-tileset", { anim: "l" }),
-        area(),
-        offscreen(),
-        // body({ isStatic: true }),
-        "platform",
-      ],
-      k: () => [
-        sprite("platform-tileset", { anim: "m" }),
-        area(),
-        offscreen(),
-        // body({ isStatic: true }),
-        "platform",
-      ],
-      l: () => [
-        sprite("platform-tileset", { anim: "r" }),
-        area(),
-        offscreen(),
-        // body({ isStatic: true }),
-        "platform",
-      ],
       
       // f: () => [
       //   sprite("feather"),

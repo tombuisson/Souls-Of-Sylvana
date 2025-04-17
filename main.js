@@ -12,7 +12,7 @@ import { level2Layout, level2Mappings } from "./content/level2/level2Layout.js"
 import { level3Config } from "./content/level3/config.js"
 import { level3Layout, level3Mappings } from "./content/level3/level3Layout.js"
 import { initParallax } from "./utils/parallax.js"
-import { movingPlatform } from "./utils/movingPlatform.js"
+import { movingPlatforms } from "./utils/movingPlatform.js"
 
 kaboom({
     width: 1280,
@@ -30,6 +30,7 @@ console.log(getSprite("grass-oneway-tileset"));
 const scenes = {
     menu: () => {
         uiManager.displayMainMenu()
+        destroyAll("gameOverMessage")
     },
     controls: () => {
         uiManager.displayControlsMenu()
@@ -50,6 +51,8 @@ const scenes = {
             false,
             16,
         );
+
+        movingPlatforms.create();
     
         player.enablePassthrough()
         player.enableCoinPickup()
@@ -68,6 +71,10 @@ const scenes = {
                 
         onLoad(() => {
             initParallax();
+        });
+
+        onUpdate(() => {
+            movingPlatforms.update();
         });
     },
     2: () => {
@@ -97,8 +104,6 @@ const scenes = {
         attachCamera(player.gameObj, 0, 200)
 
         level2.drawWaves("lava", "wave")
-
-        uiManager.addDarkBg()
 
         uiManager.displayCoinCount()
         player.updateCoinCount(uiManager.coinCountUI)
@@ -144,7 +149,7 @@ const scenes = {
         player.updateLives(uiManager.livesCountUI)
     },
     gameover: () => {
-    
+        uiManager.displayGameoverMenu();
     },
     end: () => {
     

@@ -33,12 +33,12 @@ class UIManager {
             fixed(),
             pos(50, 50)
         ])
-    
+
         // Update coin total after level is fully loaded
         wait(0.1, () => {
             this.coinCountUI.updateCoinTotal();
         });
-    
+
         this.coinCountUI.add([
             sprite("coin-icon"),
             pos(-43, -5),
@@ -61,12 +61,12 @@ class UIManager {
     //         fixed(),
     //         pos(50, 50)
     //     ])
-    
+
     //     // Update coin total after level is fully loaded
     //     wait(0.1, () => {
     //         this.coinCountUI.updateCoinTotal();
     //     });
-    
+
     //     this.coinCountUI.add([
     //         sprite("coin-icon"),
     //         pos(-43, -5),
@@ -109,6 +109,25 @@ class UIManager {
         })
     }
 
+    displayGameoverUIMessage(content, position) {
+        const message = add([
+            text(content, {
+                size: 48,
+                font: "Round"
+            }),
+            area(),
+            anchor("center"),
+            pos(position),
+            opacity(),
+            "gameOverMessage" // Add a tag
+        ])
+        
+        onKeyPress("enter", () => {
+            destroy(message)
+            go("menu")
+        })        
+    }
+
     displayMainMenu() {
         add([
             sprite("forest-background"),
@@ -123,7 +142,12 @@ class UIManager {
         ])
 
         this.displayBlinkingUIMessage(
-            "Press [ Enter ] to Start Game", 
+            "Press [ Enter ] to Start Game",
+            vec2(center().x, center().y + 100)
+        )
+
+        this.displayGameoverUIMessage(
+            "GAME OVER ! You Suck, Stop Playing Blud",
             vec2(center().x, center().y + 100)
         )
 
@@ -151,24 +175,29 @@ class UIManager {
         ])
         controlPrompts.add([
             sprite("up"),
-            pos(0, -80)
+            pos(-85, -80)
         ])
-        controlPrompts.add([sprite("down")])
-        controlPrompts.add([sprite("left"), pos(-80, 0)])
-        controlPrompts.add([sprite("right"), pos(80, 0)])
-        controlPrompts.add([sprite("space"), pos(-200, 0)])
+        controlPrompts.add([sprite("down"), pos(-85, 0)])
+        controlPrompts.add([sprite("left"), pos(-165, 0)])
+        controlPrompts.add([sprite("right"), pos(-5, 0)])
+        controlPrompts.add([sprite("space"), pos(-300, 0)])
+        controlPrompts.add([sprite("tab"), pos(100, 0)])
 
         controlPrompts.add([
             text("jump", { font: "Round", size: 20 }),
-            pos(-178, 100)
+            pos(-275, 100)
         ])
         controlPrompts.add([
             text("Movements", { font: "Round", size: 20 }),
-            pos(-10, 100)
+            pos(-95, 100)
+        ])
+        controlPrompts.add([
+            text("Upgrades", { font: "Round", size: 20 }),
+            pos(100, 100)
         ])
 
         this.displayBlinkingUIMessage(
-            "Press [ Enter ] to Start Game", 
+            "Press [ Enter ] to Start Game",
             vec2(center().x, center().y + 180)
         )
 
@@ -178,8 +207,20 @@ class UIManager {
         })
     }
 
-    addDarkBg() {
-        // add([rect(230, 120), color(0,0,0), fixed()])
+    displayGameoverMenu() {
+        add([rect(width(), height()), color(0, 0, 0), opacity(0.7), fixed()]);
+        
+        this.displayGameoverUIMessage(
+            "GAME OVER! You Suck, Stop Playing Blud",
+            vec2(center().x, center().y - 150),
+            add([rect(2230, 1120), color(0, 0, 0), fixed()])
+        );
+        add([
+            sprite("catLaughing"),
+            scale(0.5),
+            vec2(center().x, center().y - 150),
+            pos(450, 300)
+        ])
     }
 }
 export const uiManager = new UIManager()

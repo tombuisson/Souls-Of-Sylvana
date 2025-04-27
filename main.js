@@ -1,4 +1,3 @@
-import kaplay from "https://unpkg.com/kaplay@3001/dist/kaplay.mjs";
 import kaboom from "./libs/kaboom.mjs"
 import { uiManager } from "./utils/UIManager.js"
 import { load } from "./utils/loader.js"
@@ -13,6 +12,8 @@ import { level3Config } from "./content/level3/config.js"
 import { level3Layout, level3Mappings } from "./content/level3/level3Layout.js"
 import { initParallax } from "./utils/parallax.js"
 import { movingPlatforms } from "./utils/movingPlatform.js"
+import { upgradeInterface } from "./utils/upgradeInterface.js"
+import { playMusic } from "./utils/musics.js"
 
 kaboom({
     width: 1280,
@@ -29,13 +30,21 @@ console.log(getSprite("grass-oneway-tileset"));
 
 const scenes = {
     menu: () => {
+        console.log("entering menu")
         uiManager.displayMainMenu()
         destroyAll("gameOverMessage")
+        onLoad(() => {
+            playMusic()
+        })
     },
     controls: () => {
+        console.log("entering constrols")
+
         uiManager.displayControlsMenu()
     },
-    1: () => {     
+    1: () => {    
+        console.log("entering level 1")
+ 
         setGravity(1400)
         console.log("Chargement du niveau 1...");
         const level1 = new Level();
@@ -53,7 +62,7 @@ const scenes = {
         );
 
         movingPlatforms.create();
-    
+        
         player.enablePassthrough()
         player.enableCoinPickup()
         player.displayInteractMsg(uiManager.coinCountUI)
@@ -72,6 +81,8 @@ const scenes = {
         onLoad(() => {
             initParallax();
         });
+
+        upgradeInterface();
 
         onUpdate(() => {
             movingPlatforms.update();

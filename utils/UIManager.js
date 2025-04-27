@@ -124,30 +124,34 @@ class UIManager {
         
         onKeyPress("enter", () => {
             destroy(message)
-            go("menu")
+            // go("menu")
         })        
     }
 
     displayMainMenu() {
         add([
             sprite("forest-background"),
-            scale(5.1)
-        ]),
-        add([
+            scale(5.1) 
+        ]); 
+    
+        const mainLogo = add([
             sprite("logo"),
             area(),
             anchor("center"),
             pos(center().x, center().y - 100),
-            scale(8)
-        ])
+            scale(1.2),
+            opacity(0),
+        ]);
+    
+        tween(
+            mainLogo.opacity,
+            1,
+            2,
+            (val) => mainLogo.opacity = val
+        );
 
         this.displayBlinkingUIMessage(
             "Press [ Enter ] to Start Game",
-            vec2(center().x, center().y + 100)
-        )
-
-        this.displayGameoverUIMessage(
-            "GAME OVER ! You Suck, Stop Playing Blud",
             vec2(center().x, center().y + 100)
         )
 
@@ -181,7 +185,7 @@ class UIManager {
         controlPrompts.add([sprite("left"), pos(-165, 0)])
         controlPrompts.add([sprite("right"), pos(-5, 0)])
         controlPrompts.add([sprite("space"), pos(-300, 0)])
-        controlPrompts.add([sprite("tab"), pos(100, 0)])
+        controlPrompts.add([sprite("tab"), pos(130, 0)])
 
         controlPrompts.add([
             text("jump", { font: "Round", size: 20 }),
@@ -193,7 +197,7 @@ class UIManager {
         ])
         controlPrompts.add([
             text("Upgrades", { font: "Round", size: 20 }),
-            pos(100, 100)
+            pos(130, 100)
         ])
 
         this.displayBlinkingUIMessage(
@@ -215,12 +219,24 @@ class UIManager {
             vec2(center().x, center().y - 150),
             add([rect(2230, 1120), color(0, 0, 0), fixed()])
         );
-        add([
+        let lechat = add([
             sprite("catLaughing"),
             scale(0.5),
             vec2(center().x, center().y - 150),
-            pos(450, 300)
-        ])
+            pos(450, 300),
+            opacity(0)
+        ]);
+        
+        tween(
+            lechat.opacity,
+            1,             
+            6,        
+            (val) => { lechat.opacity = val }
+        );
+        onKeyPress("enter", () => {
+            go("menu")
+            destroy(music1)
+        })
     }
 }
 export const uiManager = new UIManager()

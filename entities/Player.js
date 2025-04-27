@@ -77,9 +77,9 @@ export class Player {
         })
 
         onKeyDown("space", () => {
-             if (!this.gameObj.isGrounded() && this.hasJumpedOnce) return
+            //  if (!this.gameObj.isGrounded() && this.hasJumpedOnce) return
 
-             if (time() - this.timeSinceLastGrounded > this.coyoteLapse) return
+            //  if (time() - this.timeSinceLastGrounded > this.coyoteLapse) return
 
             this.gameObj.jump(this.jumpForce)
             // play("jump" "./Chemin/vers/le/son/de/jump")

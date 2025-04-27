@@ -116,7 +116,6 @@ export function initParallax() {
         },
     ];
 
-    // Le reste du code reste inchangé
     onUpdate(() => {
         const camX = camPos().x;
 

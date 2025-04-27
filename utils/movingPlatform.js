@@ -17,7 +17,7 @@ export const movingPlatforms = {
                 width: this.config.width,
                 height: this.config.height
             }),
-            pos(2350, 600),
+            pos(2370, 600),
             area(),
             body({ isStatic: true }),
             z(300),

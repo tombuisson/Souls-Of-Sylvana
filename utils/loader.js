@@ -4,7 +4,7 @@ export const load = {
     },
     assets: () => {
         loadSprite("forest-background", "./assets/Forest_Background_0.png");
-        loadSprite("logo", "./assets/Logo.png");
+        loadSprite("logo", "./assets/logo.png");
         loadSprite("coin-icon", "./assets/Coins_Ui.png");
         loadSprite("heart-icon", "./assets/heart.png");
         loadSprite("up", "./assets/Arrow_Up_Key_Dark.png");
@@ -26,6 +26,9 @@ export const load = {
         loadSprite("arrow-pancarte", "./assets/arrow-pancarte.png")
         loadSprite("tab", "./assets/keys/Tab_Key_Dark.png")
         loadSprite("catLaughing", "./assets/catLaughing.png")
+        loadSprite("plank", "./assets/plank2.png")
+        loadSprite("doubleJump-icon", "./assets/double-jump.png")
+        loadSound("lvl1Music", "./assets/lvl1Music.mp3")
 
         loadSprite("platform", "./assets/Platform.png")
 

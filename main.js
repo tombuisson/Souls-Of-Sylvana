@@ -151,8 +151,6 @@ const scenes = {
 
         level3.drawWaves("clouds", "wave")
 
-        uiManager.addDarkBg()
-
         uiManager.displayCoinCount()
         player.updateCoinCount(uiManager.coinCountUI)
 

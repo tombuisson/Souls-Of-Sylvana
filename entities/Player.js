@@ -156,8 +156,8 @@ export class Player {
     displayInteractMsg(coinCountUI) {
         this.gameObj.onCollide("door", (door) => {
             
-            if (this.coin >= this.totalCoins) {
-                go(this.isInFinalLevel ? "end" : this.currentLevelScene + 1);
+            if (this.coin == this.totalCoins) {
+                go(this.isInFinalLevel ? false : this.currentLevelScene + 1);
             } else {
                 console.log(`Player coins: ${this.coin}, Required coins: ${this.totalCoins}`);
                 const msg = add([

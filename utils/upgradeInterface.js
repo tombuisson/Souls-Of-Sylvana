@@ -3,6 +3,40 @@ export function upgradeInterface() {
     let plankBackground = null;
     let upgradeTitle;
 
+    const skillTree = {
+        skills: {
+            doubleJump: {
+                id: "skill1",
+                name: "doubleJump",
+                cost: 17,
+                unlocked: false,
+                require: []
+            },
+            dash: {
+                id: "skill2",
+                name: "dash",
+                cost: 20,
+                unlocked: false,
+                require: ["skill1"]
+            },
+            moreSpeed: {
+                id: "skill3",
+                name: "moreSpeed",
+                cost: 30,
+                unlocked: false,
+                require: ["skill1", "skill2"]
+            },
+            moreSpeed: {
+                id: "skill4",
+                name: "moreSpeed",
+                cost: 35,
+                unlocked: false,
+                require: ["skill1", "skill2", "skill3"]
+            }
+        },
+        orbs: 0
+    };
+
     onKeyPress("tab", () => {
         if (isUiVisible) {
             destroy(plankBackground);
@@ -29,47 +63,6 @@ export function upgradeInterface() {
                 anchor("center"),
                 pos(camX, center().y -480),
             ]);
-
-            const skillTree = {
-                skills: {
-                    doubleJump: {
-                        id: "skill1",
-                        name: "doubleJump",
-                        cost: 20,
-                        unlocked: false,
-                        require: []
-                    },
-                    dash: {
-                        id: "skill2",
-                        name: "dash",
-                        cost: 20,
-                        unlocked: false,
-                        require: ["skill1"]
-                    },
-                    moreSpeed: {
-                        id: "skill3",
-                        name: "moreSpeed",
-                        cost: 20,
-                        unlocked: false,
-                        require: ["skill1", "skill2"]
-                    }
-                },
-                orbs: 0
-            };
-
-            function canUnlockSkill(skillId) {
-                const skill = skillTree.skills[skillId];
-
-                if(skill.unlocked) return false;
-
-                if(skillTree.orbs < skill.cost) return false;
-
-                for(const reqId in skills.require) {
-                    if(!skillTree.skills[reqId].unlocked)
-                        return false;
-                }
-            }
-            
 
             onUpdate(() => {
                 if(plankBackground) {

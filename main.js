@@ -58,8 +58,10 @@ const scenes = {
             level1Config.nbLives,
             1,
             false,
-            16,
+            17,
         );
+
+        window.player = player; // To Delete after !!!!
 
         movingPlatforms.create();
         

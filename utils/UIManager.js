@@ -128,6 +128,25 @@ class UIManager {
         })        
     }
 
+    displayWinUIMessage(content, position) {
+        const message = add([
+            text(content, {
+                size: 48,
+                font: "Round"
+            }),
+            area(),
+            anchor("center"),
+            pos(position),
+            opacity(),
+            "winMessage" // Add a tag
+        ])
+        
+        onKeyPress("enter", () => {
+            destroy(message)
+            // go("menu")
+        })        
+    }    
+
     displayMainMenu() {
         add([
             sprite("forest-background"),
@@ -224,6 +243,34 @@ class UIManager {
             scale(0.5),
             vec2(center().x, center().y - 150),
             pos(450, 300),
+            opacity(0)
+        ]);
+        
+        tween(
+            lechat.opacity,
+            1,             
+            6,        
+            (val) => { lechat.opacity = val }
+        );
+        onKeyPress("enter", () => {
+            go("menu")
+            destroy(music1)
+        })
+    }
+
+    displayWinMenu() {
+        add([rect(width(), height()), color(0, 0, 0), opacity(0.7), fixed()]);
+        
+        this.displayWinUIMessage(
+            "You WON !!! And you seem to have \n     some issues with racism...",
+            vec2(center().x, center().y - 150),
+            add([rect(2230, 1120), color(0, 0, 0), fixed()])
+        );
+        let lechat = add([
+            sprite("catThumbUp"),
+            scale(0.5),
+            vec2(center().x, center().y - 150),
+            pos(420, 300),
             opacity(0)
         ]);
         

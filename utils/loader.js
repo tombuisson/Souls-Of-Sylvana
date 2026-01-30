@@ -26,6 +26,7 @@ export const load = {
         loadSprite("arrow-pancarte", "./assets/arrow-pancarte.png")
         loadSprite("tab", "./assets/keys/Tab_Key_Dark.png")
         loadSprite("catLaughing", "./assets/catLaughing.png")
+        loadSprite("catThumbUp", "./assets/catThumbUp.png")        
         loadSprite("plank", "./assets/plank2.png")
         loadSprite("doubleJump-icon", "./assets/double-jump.png")
         loadSound("lvl1Music", "./assets/lvl1Music.mp3")

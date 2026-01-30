@@ -1,6 +1,6 @@
 export const level3Config = {
     gravity: 1400,
-    playerSpeed: 400,
+    playerSpeed: 350,
     jumpForce: 650,
     nbLives: 3,
     playerStartPosX: 1500,

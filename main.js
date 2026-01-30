@@ -60,9 +60,7 @@ const scenes = {
             false,
             17,
         );
-
-        window.player = player; // To Delete after !!!!
-
+        
         movingPlatforms.create();
         
         player.enablePassthrough()
@@ -120,6 +118,7 @@ const scenes = {
 
         uiManager.displayCoinCount()
         player.updateCoinCount(uiManager.coinCountUI)
+        player.displayInteractMsg(uiManager.coinCountUI)
 
         uiManager.displayLivesCount()
         player.updateLives(uiManager.livesCountUI)        
@@ -143,7 +142,8 @@ const scenes = {
             level3Config.jumpForce,
             level3Config.nbLives,
             3,
-            true
+            false,
+            10,
         )
         player.enablePassthrough()
         player.enableCoinPickup()
@@ -158,17 +158,19 @@ const scenes = {
 
         uiManager.displayLivesCount()
         player.updateLives(uiManager.livesCountUI)
+        player.displayInteractMsg(uiManager.coinCountUI)
     },
+    
     gameover: () => {
         uiManager.displayGameoverMenu();
     },
-    end: () => {
-    
-    }
+    4: () => {
+    uiManager.displayWinMenu();
+}
 }
 
 for (const key in scenes) {
     scene(key, scenes[key])
 }
 
-go("menu");
+go("3");

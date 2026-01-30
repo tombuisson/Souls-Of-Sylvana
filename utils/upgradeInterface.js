@@ -2,40 +2,39 @@ export function upgradeInterface() {
     let isUiVisible = false;
     let plankBackground = null;
     let upgradeTitle;
+    let upgrade1;
 
     const skillTree = {
         skills: {
             doubleJump: {
                 id: "skill1",
                 name: "doubleJump",
-                cost: 17,
                 unlocked: false,
                 require: []
             },
             dash: {
                 id: "skill2",
                 name: "dash",
-                cost: 20,
                 unlocked: false,
                 require: ["skill1"]
             },
             moreSpeed: {
                 id: "skill3",
                 name: "moreSpeed",
-                cost: 30,
                 unlocked: false,
                 require: ["skill1", "skill2"]
             },
-            moreSpeed: {
+            weapon: {
                 id: "skill4",
-                name: "moreSpeed",
-                cost: 35,
+                name: "weapon",
                 unlocked: false,
                 require: ["skill1", "skill2", "skill3"]
             }
         },
         orbs: 0
     };
+
+// Show Upgrades
 
     onKeyPress("tab", () => {
         if (isUiVisible) {

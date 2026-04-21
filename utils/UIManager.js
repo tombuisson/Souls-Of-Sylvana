@@ -281,8 +281,7 @@ class UIManager {
             (val) => { lechat.opacity = val }
         );
         onKeyPress("enter", () => {
-            go("menu")
-            destroy(music1)
+            go("menu")      
         })
     }
 }

@@ -21,7 +21,7 @@ kaboom({
     letterbox: true,
     debug: false
 });
-
+ 
 load.assets();
 load.fonts();
 // load.sounds()
@@ -173,4 +173,4 @@ for (const key in scenes) {
     scene(key, scenes[key])
 }
 
-go("3");
+go("menu");
